@@ -1,0 +1,9 @@
+.login-button{
+    width: 36px;
+    background-color: transparent;
+    border: none;
+}
+
+.login-button:hover{
+    outline: 1px #fff solid;
+}

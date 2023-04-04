@@ -9,22 +9,13 @@ import { DUMMY_MEALS } from "../../App";
 const Header = (props) => {
     return (
         <Fragment>
-            <div>
-                <header className={classes.header}>
-                    <h1>ReactMeals</h1>
-                    <div className={classes["left-side"]}>
-                        <DropdownButton
-                            margin={classes.sort}
-                            array={DUMMY_MEALS}
-                            food={props.food}
-                            setFood={props.setFood}
-                        ></DropdownButton>
-                        <LoginButton />
-                        <HeaderCartButton onClick={props.onShowCart} />
-                    </div>
-                </header>
-            </div>
-
+            <header className={classes.header}>
+                <h1>ReactMeals</h1>
+                <div className={classes["left-side"]}>
+                    <LoginButton />
+                    <HeaderCartButton onClick={props.onShowCart} />
+                </div>
+            </header>
             <div className={classes["main-image"]}>
                 <img src={mealsImage} alt="A table full of delicious food!" />
             </div>

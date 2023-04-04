@@ -1,0 +1,9 @@
+.button {
+  width: 36px;
+  background-color: transparent;
+  border: none;
+}
+
+.button:hover {
+  outline: 1px #fff solid;
+}

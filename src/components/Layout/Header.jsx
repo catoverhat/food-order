@@ -4,7 +4,7 @@ import mealsImage from "../../assets/meals.jpg";
 import classes from "./Header.module.css";
 import LoginButton from "../Login/LoginButton";
 import DropdownButton from "./Dropdown";
-import { DUMMY_MEALS } from "../Meals/AvailableMeals";
+import { DUMMY_MEALS } from "../../App";
 
 const Header = (props) => {
     return (
@@ -16,6 +16,8 @@ const Header = (props) => {
                         <DropdownButton
                             margin={classes.sort}
                             array={DUMMY_MEALS}
+                            food={props.food}
+                            setFood={props.setFood}
                         ></DropdownButton>
                         <LoginButton />
                         <HeaderCartButton onClick={props.onShowCart} />

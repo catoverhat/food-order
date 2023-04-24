@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,500,700");
+
+.body {
+  height: 100vh;
+  background-image: url("https://drive.google.com/uc?export=view&id=1yn0Q_NqNJlKae4JnhwmKX3ZnWhJ_yA6B");
+  background-size: cover;
+}
+
+.user-account {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Raleway", sans-serif;
+  width: 50%;
+  font-weight: 500;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 30% auto;
+  border: solid 1px gray;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.container input {
+  border: 1px solid #525054;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #000;
+  letter-spacing: 0px;
+  font-size: 14px;
+  background: 0;
+  width: 80%;
+  transform: translateX(10%);
+}
+
+.form {
+  display: grid;
+  gap: 5px;
+  /* height: 300px; */
+  border-left: solid 10px white;
+  padding: 10px;
+}
+.form label {
+  display: block;
+}
+
+.button {
+  justify-self: center;
+  /* position: relative;
+  transform: translateX(50%); */
+  background: linear-gradient(0deg, #019875, #029875);
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+  border: 0;
+  border-radius: 5px;
+  width: 100px;
+  height: 30px;
+  /* margin-top: 50px; */
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-shadow: 0px 2px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1.5px;
+  cursor: pointer;
+}
+
+.address{
+
+}

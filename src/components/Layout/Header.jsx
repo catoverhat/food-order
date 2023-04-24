@@ -3,20 +3,27 @@ import HeaderCartButton from "./HeaderCartButton";
 import mealsImage from "../../assets/meals.jpg";
 import classes from "./Header.module.css";
 import HeaderSignFormButton from "./HeaderSignFormButton";
+import { Link } from "react-router-dom";
+import { useIsAuthenticated, useAuthUser } from "react-auth-kit";
 
 const Header = (props) => {
+  const isAuthenticated = useIsAuthenticated();
+  const auth = useAuthUser()
+  // console.log(auth().role)
   return (
     <Fragment>
       <header className={classes.header}>
-        <h1>ReactMeals</h1>
+        <Link className={classes.logo} to={"/"}></Link>
+        <Link className={classes.link} to={"/about"}>About Us</Link>
+        <Link className={classes.link} to={"/contact"}>Contact Us</Link>
+        {isAuthenticated() && auth().role === 'admin'? <Link className={classes.link} to={"/menu"}>Menu</Link> : null}
         <div className={classes["left-side"]}>
           <HeaderSignFormButton onClick={props.onShowSignForm} />
-          <HeaderCartButton onClick={props.onShowCart} />
+          <HeaderCartButton
+            onClick={isAuthenticated() ? props.onShowCart : null}
+          />
         </div>
       </header>
-      <div className={classes["main-image"]}>
-        <img src={mealsImage} alt="A table full of delicious food!" />
-      </div>
     </Fragment>
   );
 };

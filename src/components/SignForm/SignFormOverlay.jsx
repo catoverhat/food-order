@@ -26,7 +26,7 @@ const SignFormOverlay = (props) => {
           className={`${classes["overlay-panel"]} ${classes["overlay-right"]} ${rightPanelActive}`}
         >
           <h1>Hello, Friend!</h1>
-          <p>Enter your personal details and start journey with us</p>
+          <p>Enter your personal details and start eating with us</p>
           <button
             type="button"
             className={classes.ghost}

@@ -1,42 +1,58 @@
-import { useState } from "react";
-import Header from "./components/Layout/Header";
-import Meals from "./components/Meals/Meals";
-import Cart from "./components/Cart/Cart";
-import CartProvider from "./store/CartProvider";
-import SignForm from "./components/SignForm/SignForm";
+import { Routes, Route } from "react-router-dom";
+import axios from "axios";
+import IndexPage from "./components/Pages/IndexPage";
+import CheckoutPage from "./components/Pages/CheckoutPage";
+import UserAccount from "./components/Pages/UserAccount";
+import MenuPage from "./components/Pages/MenuPage";
+import AboutUs from "./components/Pages/AboutUs";
+import ContactUs from "./components/Pages/ContactUs";
+import { RequireAuth } from "react-auth-kit";
+
+axios.defaults.baseURL = "http://127.0.0.1:4000";
 
 function App() {
-  const [cartIsShown, setCartIsShown] = useState(false);
-  const [signFromIsShown, setSignFormIsShown] = useState(false);
-
-  const showCartHandler = () => {
-    setCartIsShown(true);
-  };
-
-  const hideCartHandler = () => {
-    setCartIsShown(false);
-  };
-
-  const showSignFormHandler = () => {
-    setSignFormIsShown(true);
-  };
-
-  const hideSignFormHandler = () => {
-    setSignFormIsShown(false);
-  };
-
   return (
-    <CartProvider>
-      {cartIsShown && <Cart onClose={hideCartHandler} />}
-      {signFromIsShown && <SignForm onClose={hideSignFormHandler} />}
-      <Header
-        onShowCart={showCartHandler}
-        onShowSignForm={showSignFormHandler}
+    <Routes>
+      <Route index element={<IndexPage />} />
+      <Route path="/checkout" element={<CheckoutPage />} />
+      {/* <Route path="/user" element={<UserAccount />} /> */}
+      <Route
+        path="/user"
+        element={
+          <RequireAuth loginPath="/">
+            <UserAccount />
+          </RequireAuth>
+        }
       />
-      <main>
-        <Meals />
-      </main>
-    </CartProvider>
+
+      {/* <Route
+        path="/checkout"
+        element={
+          <RequireAuth loginPath="/">
+            <CheckoutPage />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/user"
+        element={
+          <RequireAuth loginPath="/">
+            <UserAccount />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/menu"
+        element={
+          <RequireAuth loginPath="/">
+            <MenuPage />
+          </RequireAuth>
+        }
+      /> */}
+      <Route path="/menu" element={<MenuPage />}></Route>
+      <Route path="/about" element={<AboutUs />} />
+      <Route path="/contact" element={<ContactUs />} />
+    </Routes>
   );
 }
 

@@ -1,0 +1,33 @@
+.category {
+  display: flex;
+  justify-content: space-between;
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+  max-width: 100%;
+  width: 80%;
+  padding: 0px 50px;
+  color: white;
+  background-color: #8a2b06;
+  position: fixed;
+  left: 50%;
+  top: 5%;
+  transform: translate(-50%, 25px);
+  z-index: 9;
+}
+
+.category span {
+  cursor: pointer;
+  margin-bottom: 10px;
+  border-bottom: solid 1px #8a2b06;
+}
+
+.category span:hover {
+  border-bottom: solid 1px white;
+}
+
+.category span:first-child {
+  margin-left: 100px;
+}
+
+.category span:last-child {
+  margin-right: 100px;
+}

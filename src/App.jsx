@@ -14,7 +14,7 @@ function App() {
   return (
     <Routes>
       <Route index element={<IndexPage />} />
-      <Route path="/checkout" element={<CheckoutPage />} />
+      {/* <Route path="/checkout" element={<CheckoutPage />} /> */}
       {/* <Route path="/user" element={<UserAccount />} /> */}
       <Route
         path="/user"
@@ -25,19 +25,11 @@ function App() {
         }
       />
 
-      {/* <Route
+      <Route
         path="/checkout"
         element={
           <RequireAuth loginPath="/">
             <CheckoutPage />
-          </RequireAuth>
-        }
-      />
-      <Route
-        path="/user"
-        element={
-          <RequireAuth loginPath="/">
-            <UserAccount />
           </RequireAuth>
         }
       />
@@ -48,8 +40,8 @@ function App() {
             <MenuPage />
           </RequireAuth>
         }
-      /> */}
-      <Route path="/menu" element={<MenuPage />}></Route>
+      />
+      {/* <Route path="/menu" element={<MenuPage />}></Route> */}
       <Route path="/about" element={<AboutUs />} />
       <Route path="/contact" element={<ContactUs />} />
     </Routes>

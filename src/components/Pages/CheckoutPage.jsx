@@ -4,15 +4,16 @@ import { CreditCardValidator } from "../utils/CreditCardValidator";
 import { ExpirationDateValidator } from "../utils/ExpirationDateValidator";
 import SubHeader from "../Layout/SubHeader";
 import { useLocation } from "react-router-dom";
-import {useAuthUser} from 'react-auth-kit'
-import { Navigate } from "react-router-dom";
+import { useAuthUser } from "react-auth-kit";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const CheckoutPage = () => {
   const [userData, setUserData] = useState("");
   const [creditCardType, setCreditCardType] = useState("");
   let location = useLocation();
-  const auth = useAuthUser()
+  const auth = useAuthUser();
+  const navigate = useNavigate();
 
   const images = {
     Visa: "https://seeklogo.com/images/V/visa-logo-6F4057663D-seeklogo.com.png",
@@ -33,7 +34,7 @@ const CheckoutPage = () => {
 
         if (response.status === 200) {
           const userData = await response.data.user;
-          setUserData(userData)
+          setUserData(userData);
         }
       } catch (error) {
         console.error(error);
@@ -42,7 +43,7 @@ const CheckoutPage = () => {
     getUserData();
   }, []);
 
-  // console.log(userData)
+  // console.log(name.number)
 
   const cardCheckHandler = (event) => {
     const value = event.target.value;
@@ -73,18 +74,25 @@ const CheckoutPage = () => {
 
   const ordenarHandler = (event) => {
     event.preventDefault();
-    alert('Order en proceso')
-    
+    alert("Order en proceso");
+    navigate("/");
   };
+
+  // console.log(userData.name)
 
   return (
     <div className={classes.body}>
       <SubHeader />
       <div className={classes.checkout}>
         <form className={classes.container} onSubmit={ordenarHandler}>
-          <div className={classes.userData}>
+          <div className={classes.userDataInfo}>
             <span>Nombre: {`${userData.name} ${userData.lastName}`}</span>
-            <p>Dirección: {`${userData.address.street} #${userData.address.number}, ${userData.address.sector}, ${userData.address.postalCode}`}</p>
+            {userData.address ? (
+              <p>
+                Dirección:
+                {` ${userData.address.street} #${userData.address.number}, ${userData.address.sector}, ${userData.address.postalCode}`}
+              </p>
+            ) : null}
           </div>
           <div className={classes["resumen-factura"]}>
             <h1>Orden</h1>

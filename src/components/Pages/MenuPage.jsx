@@ -125,7 +125,7 @@ const MenuPage = () => {
     <div className={classes.body}>
       <SubHeader />
 
-      <h1 className={classes.h1}>Add menu meals</h1>
+      {/* <h1 className={classes.h1}>Add menu meals</h1> */}
       <div className={classes.editMenu}>
         <form onSubmit={EditMealsHandler}>
           <label htmlFor="meals">Edit Meals</label>
@@ -199,7 +199,7 @@ const MenuPage = () => {
         />
         <button className={classes.button}>Submit</button>
       </form>
-      <button className={classes.button} onClick={deleteMealHandler}>Borrar</button>
+      {/* <button className={classes.button} onClick={deleteMealHandler}>Borrar</button> */}
     </div>
   );
 };

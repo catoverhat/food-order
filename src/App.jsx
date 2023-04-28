@@ -4,8 +4,11 @@ import Meals from "./components/Meals/Meals";
 import Cart from "./components/Cart/Cart";
 import CartProvider from "./store/CartProvider";
 import SignForm from "./components/SignForm/SignForm";
+import MealSearch from "./components/Layout/search";
+
 
 function App() {
+  
   const [cartIsShown, setCartIsShown] = useState(false);
   const [signFromIsShown, setSignFormIsShown] = useState(false);
 
@@ -35,6 +38,9 @@ function App() {
       />
       <main>
         <Meals />
+
+        
+       
       </main>
     </CartProvider>
   );
